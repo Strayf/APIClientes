@@ -15,7 +15,7 @@ namespace Domain.Service
             _enderecoRepository = enderecoRepository;
         }
         
-        public void Add(Endereco cliente)
+        public void Add(Endereco endereco)
         {
             throw new System.NotImplementedException();
         }
@@ -24,18 +24,18 @@ namespace Domain.Service
         {
             throw new System.NotImplementedException();
         }
-
-        public List<Endereco> GetAllClientes()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Endereco GetCliente(int id)
+        
+        public List<Endereco> GetAllEnderecos()
         {
             throw new System.NotImplementedException();
         }
         
-        public void Update(int id, Endereco cliente)
+        public Endereco GetEndereco(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Update(int id, Endereco endereco)
         {
             throw new System.NotImplementedException();
         }

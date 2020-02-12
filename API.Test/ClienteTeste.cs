@@ -5,24 +5,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using Domain.Entity;
 
 namespace API.Test
 {
     public class ClienteTeste
     {
         [Theory]
-        [InlineData(3, 5, 8)]
-        [InlineData(3, -3, 0)]
-        [InlineData(10, 20, 30)]
-        public void Get_DeveSomarDoisNumeros(int x, int y, int esperado)
+        [InlineData("32145698700")]
+        [InlineData("650")]
+        [InlineData("29041732004")]
+        public void CpfDeveSerValido(string CPF)
         {
-            //Arrange
-
             //Act
-            int real = x + y;
+            Cliente cliente = new Cliente();
+            cliente.CPF = CPF;
 
             //Assert
-            Assert.Equal(esperado, real);
+            Assert.True(cliente.CpfValido());
+        }
+
+        public static IEnumerable<object[]> TestData
+        {
+            get {
+                var data = new DateTime(2010, 1, 1);
+
+                var returnVals = new List<object[]>();
+                returnVals.Add(new object[] { data });
+                
+                return returnVals;
+            }
+        }
+
+        [Theory, MemberData(nameof(TestData))]
+        public void IdadeDeveSerCalculadaCorretamente(DateTime data)
+        {
+            Cliente cliente = new Cliente();
+            cliente.DataNascimento = data;
+
+            var esperado = 10;
+
+            Assert.Equal(cliente.Idade, esperado);
         }
     }
 }

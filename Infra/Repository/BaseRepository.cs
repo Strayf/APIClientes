@@ -10,7 +10,7 @@ namespace Infra.Repository
     {
         protected SqlConnection _baseConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["BaseAPIContext"].ConnectionString);
 
-        public void Add(T obj)
+        public void AddTest(T obj)
         {
             _baseConnection.Open();
             Type t = obj.GetType();

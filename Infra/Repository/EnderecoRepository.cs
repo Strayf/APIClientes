@@ -6,6 +6,7 @@ namespace Infra.Repository
 {
     public class EnderecoRepository : BaseRepository<Endereco>, IEnderecoRepository
     {
+
         public int ConnectionTest()
         {
             int value = 0;
@@ -24,6 +25,11 @@ namespace Infra.Repository
             }
             _baseConnection.Close();
             return value;
+        }
+
+        public void Add(Endereco endereco)
+        {
+            throw new System.NotImplementedException();
         }
 
         public void Delete(int id)

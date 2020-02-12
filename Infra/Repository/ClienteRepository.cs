@@ -26,6 +26,11 @@ namespace Infra.Repository
             return value;
         }
 
+        public void Add(Cliente cliente)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void Delete(int id)
         {
             throw new System.NotImplementedException();

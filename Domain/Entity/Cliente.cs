@@ -4,14 +4,6 @@ namespace Domain.Entity
 {
     public class Cliente
     {
-        public Cliente(int? id, string Nome, string CPF, DateTime DataNascimento)
-        {
-            this.IdCliente = id ?? 0;
-            this.Nome = Nome;
-            this.CPF = CPF;
-            this.DataNascimento = DataNascimento;
-        }
-
         public int IdCliente { get; set; }
         public string Nome { get; set; }
         public string CPF { get; set; }
