@@ -7,6 +7,7 @@ using Web.Helper;
 
 namespace Web.Controllers
 {
+    [RoutePrefix("Cliente")]
     public class ClienteController : ApiController
     {
 
@@ -23,6 +24,7 @@ namespace Web.Controllers
         /// <remarks>
         /// Retorna uma array com todos os clientes cadastrados.
         /// </remarks>
+        [Route("BuscarTodos")]
         public List<Cliente> Get()
         {
             return _clienteService.GetAllClientes();
@@ -35,6 +37,7 @@ namespace Web.Controllers
         /// Retorna o cliente correspondente ao ID.
         /// </remarks>
         /// <param name="id">ID do cliente.</param>
+        [Route("BuscarPorId")]
         public Cliente Get(int id)
         {
             return _clienteService.GetCliente(id);
@@ -48,6 +51,7 @@ namespace Web.Controllers
         /// </remarks>
         /// <param name="id">ID do cliente.</param>
         /// <param name="cliente">Objeto com informações do cliente.</param>
+        [Route("Atualizar")]
         public void Put(int id, Cliente cliente)
         {
             ValidaCliente(cliente);
@@ -69,6 +73,7 @@ namespace Web.Controllers
         /// Insere cliente com as informações fornecidas.
         /// </remarks>
         /// <param name="cliente">Objeto com informações do cliente.</param>
+        [Route("Inserir")]
         public void Post(Cliente cliente)
         {
             ValidaCliente(cliente);
@@ -90,6 +95,7 @@ namespace Web.Controllers
         /// Apaga cliente correspondente ao ID fornecido.
         /// </remarks>
         /// <param name="id">ID do cliente.</param>
+        [Route("Apagar")]
         public void Delete(int id)
         {
             _clienteService.Delete(id);
