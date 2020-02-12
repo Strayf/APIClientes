@@ -28,17 +28,17 @@ namespace Domain.Service
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _clienteRepository.Delete(id);
         }
 
         public List<Cliente> GetAllClientes()
         {
-            throw new NotImplementedException();
+            return _clienteRepository.GetAllClientes();
         }
 
         public Cliente GetCliente(int id)
         {
-            throw new NotImplementedException();
+            return _clienteRepository.GetCliente(id);
         }
 
         public bool TesteService()
@@ -50,7 +50,7 @@ namespace Domain.Service
 
         public void Update(int id, Cliente cliente)
         {
-            throw new NotImplementedException();
+            _clienteRepository.Update(id, cliente);
         }
     }
 }

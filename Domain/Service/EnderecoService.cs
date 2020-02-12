@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Domain.Entity;
+﻿using Domain.Entity;
 using Domain.Interface.Repository;
 using Domain.Interface.Service;
+using System.Collections.Generic;
 
 namespace Domain.Service
 {
@@ -17,27 +17,27 @@ namespace Domain.Service
         
         public void Add(Endereco endereco)
         {
-            throw new System.NotImplementedException();
+            _enderecoRepository.Add(endereco);
         }
 
         public void Delete(int id)
         {
-            throw new System.NotImplementedException();
+            _enderecoRepository.Delete(id);
         }
         
         public List<Endereco> GetAllEnderecos()
         {
-            throw new System.NotImplementedException();
+            return _enderecoRepository.GetAllEnderecos();
         }
         
         public Endereco GetEndereco(int id)
         {
-            throw new System.NotImplementedException();
+            return _enderecoRepository.GetEndereco(id);
         }
 
         public void Update(int id, Endereco endereco)
         {
-            throw new System.NotImplementedException();
+            _enderecoRepository.Update(id, endereco);
         }
     }
 }
