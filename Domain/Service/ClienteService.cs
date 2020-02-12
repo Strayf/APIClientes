@@ -18,11 +18,6 @@ namespace Domain.Service
 
         public void Add(Cliente cliente)
         {
-            if (!cliente.CpfValido())
-            {
-                throw new FormatException("CPF Inválido.");
-            }
-            if (true)
             _clienteRepository.Add(cliente);
         }
 

@@ -1,7 +1,9 @@
 ﻿using Domain.Entity;
 using Domain.Interface.Service;
+using System;
 using System.Collections.Generic;
 using System.Web.Http;
+using Web.Helper;
 
 namespace Web.Controllers
 {
@@ -48,7 +50,16 @@ namespace Web.Controllers
         /// <param name="cliente">Objeto com informações do cliente.</param>
         public void Put(int id, Cliente cliente)
         {
-            _clienteService.Update(id, cliente);
+            ValidaCliente(cliente);
+
+            if (ModelState.IsValid)
+            {
+                _clienteService.Update(id, cliente);
+            }
+            else
+            {
+                throw new HttpResponseException(System.Net.HttpStatusCode.Forbidden);
+            }
         }
 
         /// <summary>
@@ -60,7 +71,16 @@ namespace Web.Controllers
         /// <param name="cliente">Objeto com informações do cliente.</param>
         public void Post(Cliente cliente)
         {
-            _clienteService.Add(cliente);
+            ValidaCliente(cliente);
+
+            if (ModelState.IsValid)
+            {
+                _clienteService.Add(cliente);
+            }
+            else
+            {
+                throw new HttpResponseException(System.Net.HttpStatusCode.Forbidden);
+            }
         }
 
         /// <summary>
@@ -73,6 +93,18 @@ namespace Web.Controllers
         public void Delete(int id)
         {
             _clienteService.Delete(id);
+        }
+
+        private void ValidaCliente(Cliente cliente)
+        {
+            if (!cliente.CpfValido())
+                ModelState.AddModelError("CPF", "CPF Inválido");
+
+            if (cliente.DataNascimento == null)
+                ModelState.AddModelError("DataNascimento", "Data de Nascimento é obrigatória");
+
+            if (Auxiliares.AcimaDoLimite(cliente.Nome, 30))
+                ModelState.AddModelError("Nome", "Nome acima de 30 caracteres não é permitido");
         }
     }
 }

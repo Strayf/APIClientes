@@ -15,7 +15,7 @@ namespace Domain.Service
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

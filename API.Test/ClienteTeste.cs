@@ -39,7 +39,7 @@ namespace API.Test
             Cliente cliente = new Cliente();
             cliente.DataNascimento = data;
 
-            var esperado = 10;
+            var esperado = DateTime.Now.Year - data.Year;
 
             Assert.Equal(cliente.Idade, esperado);
         }
